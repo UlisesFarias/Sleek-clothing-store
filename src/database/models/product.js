@@ -22,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
     categoryId: DataTypes.INTEGER,
     genderId: DataTypes.INTEGER,
     sectionId: DataTypes.INTEGER,
-    itemId: DataTypes.INTEGER,
     sizeId: DataTypes.INTEGER,
     collectionId: DataTypes.INTEGER,
     imageId: DataTypes.INTEGER
