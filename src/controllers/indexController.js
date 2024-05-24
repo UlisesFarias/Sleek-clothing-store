@@ -11,5 +11,8 @@ module.exports = {
             })
         })
         .catch(error => console.log(error))
+    },
+    detail:(req,res) => {
+        return res.render('productDetail')
     }
 }
