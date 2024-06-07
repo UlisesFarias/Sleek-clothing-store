@@ -1,3 +1,4 @@
+const { Model } = require('sequelize')
 const db = require ('../database/models')
 
 module.exports = {
@@ -11,5 +12,22 @@ module.exports = {
             })
         })
         .catch(error => console.log(error))
+    },
+    detailProduct:(req, res) => {
+        db.Product.findByPk(req.params.id, {
+            include: [{
+                model: db.Image,
+                as: 'images'
+            }]
+        })
+        .then(function(producto){
+            const imagenes = producto.images.map(image => image.file);
+            res.render('products/detailProduct', { 
+                title: 'Detalles', 
+                producto, 
+                imagenes,
+            });
+        })
+        .catch(err => console.log(err));
     }
 }
