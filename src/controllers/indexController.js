@@ -8,15 +8,15 @@ module.exports = {
             include: [{
                 model: db.Image,
                 as: 'images'
-            }]
+            }] 
            
 		})
 		const oferta = db.Product.findAll({
 			where: {sectionId: 2},
-            include: [{
+             include: [{
                 model: db.Image,
                 as: 'images'
-            }]
+            }] 
 		})
 
 		Promise.all([oferta, destacado])

@@ -11,12 +11,12 @@
 
     <main>
       <div class="div_sections">
-        <h2>Destacados</h2>
+        <h2 class="seccion">Destacados</h2>
         <section class="productCard_section">
                 <% destacado.forEach(product => { %> <%-
                 include('./partials/productCard', {product}) %> <% }) %>
         </section>     
-        <h2>Ofertas</h2>
+        <h2 class="seccion">Ofertas</h2>
         <section class="productCard_section">
           <% oferta.forEach(product => { %> <%-
           include('./partials/productCard', {product}) %> <% }) %>

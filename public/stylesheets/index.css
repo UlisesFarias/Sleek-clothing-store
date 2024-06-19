@@ -1,0 +1,19 @@
+.div_sections {
+    width: 68%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .div_sections .seccion{
+    text-align: center;
+    padding: 10px 0px;
+  }
+  .productCard_section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0; 
+    justify-content: center;
+  }
+  
+  
