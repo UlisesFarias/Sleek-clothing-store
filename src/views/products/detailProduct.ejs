@@ -8,7 +8,7 @@
     <title>Detalle Producto</title>
 </head>
 <body>
-    <header>Header</header>
+     <%- include('../partials/header.ejs')%>
     <main>
         <section class="detailProduct">
             <div class="link-top">
@@ -18,14 +18,19 @@
                 <!-- IMAGEN PRINCIPAL Y MINIATURAS -->
                 <div class="image-gallery col-md-6 d-none d-md-flex">
                     <div class="thumbnail-images col-3 d-flex flex-column justify-content-between">
-                        <img src="/images/Products/1713342432_img_product_.jpg" class="img-thumbnail mb-2" data-src="/images/Products/1713342432_img_product_.jpg" alt="...">
-                        <img src="/images/Products/17134543471_img_product_.jpg" class="img-thumbnail mb-2" data-src="/images/Products/17134543471_img_product_.jpg" alt="...">
-                        <img src="/images/Products/17123120871_img_product_.jpg" class="img-thumbnail" data-src="/images/Products/17123120871_img_product_.jpg" alt="...">
+                        <% if (imagenes.length > 0) { %>
+                            <% imagenes.forEach((imagen, index) => { %>
+                                <img src="/images/Products/<%= imagen %>" class="img-thumbnail mb-2" alt="Imagen <%= index + 1 %>">
+                            <% }) %>
+                        <% } else { %>
+                            <img src="/images/Products/default_image.jpg" class="img-thumbnail mb-2" alt="Imagen predeterminada">
+                        <% } %>
                     </div>
                     <div class="main-image col-9">
-                        <img id="mainImage" src="/images/Products/17123120871_img_product_.jpg" class="d-block w-100" alt="...">
+                        <img id="mainImage" src="/images/Products/<%= imagenes.length > 0 ? imagenes[0] : 'default_image.jpg' %>" class="d-block w-100" alt="Imagen principal">
                     </div>
                 </div>
+                
                 <!-- CARRUSEL -->
                 <div id="carouselExampleIndicators" class="carousel slide col-md-6 d-md-none">
                     <div class="carousel-indicators">
