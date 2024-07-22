@@ -1,3 +1,170 @@
-header{
-    background-color: aqua;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
 }
+
+body {
+    font-family: sans-serif;
+    text-transform: capitalize;
+}
+
+.link-top h5 a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    display: none;
+}
+
+.carousel-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-right: 15%;
+    margin-bottom: 1rem;
+    margin-left: 15%;
+}
+
+.carousel-indicators [data-bs-target] {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 10px;
+    border-radius: 100%;
+    height: 10px;
+    padding: 0;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: black;
+    background-clip: padding-box;
+    border: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: 0.5;
+    transition: opacity .6s ease;
+}
+
+.product-description {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.product-description h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.product-description span {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.product-description p {
+    border: 1px solid black;
+}
+
+.product-description p i {
+    padding: 10px;
+}
+
+/* Agrega esta sección al final del archivo CSS */
+.main-image img {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+/* Asegúrate de que las imágenes en el carrusel se ajusten correctamente */
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+.image-gallery {
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.main-image {
+    width: 70%;
+}
+
+.thumbnail-images {
+    width: 25%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail-images img {
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail-images img:hover {
+    transform: scale(1.1);
+}
+
+/* Media queries para ajustar el diseño en dispositivos móviles */
+@media (max-width: 768px) {
+    .image-gallery {
+        display: none;
+    }
+    .carousel.slide.col-md-6 {
+        display: block;
+    }
+   
+}
+
+@media (max-width: 576px) {
+    .content-detail {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-description, .product-description-2, .button-cart {
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .product-description h2 {
+        font-size: 1.5rem;
+    }
+
+    .product-description span {
+        font-size: 1.2rem;
+    }
+
+    .button-cart {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-quantity {
+        margin-bottom: 1rem;
+        width: 50%;
+    }
+}
+
