@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ES">
+
+<%- include('./partials/head',{ title : 'Dashboard' }) %>
+<body>
+    <%- include('./partials/header') %>
+    <main class="container">
+        <section class="row my-5">
+            <div class="col-12 col-md-12 mx-auto">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <h4 class="cart-title">Dashboard de productos</h4>
+                        <a class="btn btn-success btn-md " href="/products/agregar">Nuevo</a>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre del producto</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Color</th>
+                                <th scope="col">Talle</th>
+                                <th scope="col">Genero</th>
+                                <th scope="col">Coleccion</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <% product.forEach(({id,name,price,category,color,size,gender,collection},index) => { %>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= index + 1 %></th>
+                                        <th scope="col"><%= name %></th>
+                                        <td scope="col"><%= price %></td>
+                                        <td scope="col"><%= category.name %></td>
+                                        <td scope="col"><%= color.name %></td>
+                                        <td scope="col"><%= size.name %></td>
+                                        <td scope="col"><%= gender.name %></td>
+                                        <td scope="col"><%= collection.name %></td>
+                                    </tr>
+                                <% }) %>
+        
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+            <%- include('./partials/scripts') %>
+    <%- include('./partials/footer') %>
+
+</body>
+</html>

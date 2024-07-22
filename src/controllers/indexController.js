@@ -5,10 +5,18 @@ module.exports = {
     index: (req, res) => {
 		const destacado = db.Product.findAll({
 			where: {sectionId: 1},
-    
+            include: [{
+                model: db.Image,
+                as: 'images'
+            }] 
+           
 		})
 		const oferta = db.Product.findAll({
-			where: {sectionId: 2},   
+			where: {sectionId: 2},
+             include: [{
+                model: db.Image,
+                as: 'images'
+            }] 
 		})
 
 		Promise.all([oferta, destacado])
@@ -36,6 +44,17 @@ module.exports = {
             });
         })
         .catch(err => console.log(err));
-    }
+    },
+    admin: (req, res) => {
+        db.Product.findAll({
+            include : ["category", "color", "collection", "size","gender"]
+        })
+            .then(product => {
+                return res.render('dashboard', {
+                    product
+                })
+            })
+            .catch(error => console.log(error))
+    },
 }
 
