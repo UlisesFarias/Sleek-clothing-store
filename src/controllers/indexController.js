@@ -5,18 +5,10 @@ module.exports = {
     index: (req, res) => {
 		const destacado = db.Product.findAll({
 			where: {sectionId: 1},
-            include: [{
-                model: db.Image,
-                as: 'images'
-            }] 
-           
+    
 		})
 		const oferta = db.Product.findAll({
-			where: {sectionId: 2},
-             include: [{
-                model: db.Image,
-                as: 'images'
-            }] 
+			where: {sectionId: 2},   
 		})
 
 		Promise.all([oferta, destacado])
