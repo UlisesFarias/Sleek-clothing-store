@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <main class="container">
+                <section class="row my-5">
+                    <div class="col-12 col-md-10 mx-auto">
+                        <div class="card border-primary">
+                            <div class="card-header d-flex justify-content-between">
+                                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/admin" class="text-primary"><i
+                                                    class="fa-solid fa-lock"></i></a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Nuevo Producto</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <div class="card-body">
+                                <form action="/products/create" method="POST" class="row formAdd"
+                                    enctype="multipart/form-data">
+                                    <h3>Nuevo Producto</h3>
+                                    <hr>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <div class="form-floating ">
+                                            <input name="name" 
+                                                type="text" class="form-control" id="name">
+                                            <label for="name">Nombre del producto</label>
+                                        </div>
+                                       
+
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <div class="form-floating">
+                                            <input name="price"
+                                            type="text"
+                                            class="form-control"
+                                            id="price">
+                                            <label for="price">Precio</label>
+                                        </div>
+                                        
+                                    </div>
+                    
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <div class="form-floating">
+                                            <select name="categoryId"
+                                                class="form-select" 
+                                                id="categoryId">
+                                                <option value="" selected hidden>Seleccione...</option>
+
+                                                <% categories.forEach(category=> { %>
+                                                    <option value="<%= category.id %>">
+                                                        <%= category.name %>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
+                                            
+                                            <label for="categoryId">Categoría</label>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <div class="form-floating">
+                                            <select name="materialId"
+                                                class="form-select"
+                                                id="materialId" >
+                                                <option value="" selected hidden>Seleccione...</option>
+                                                <% colors.forEach(color=> { %>
+                                                    <option value="<%= color.id %>">
+                                                        <%= color.name %>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
+                                           
+                                            <label for="materialId">Color</label>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <div class="form-floating">
+                                            <select name="originId"
+                                                class="form-select"
+                                                id="originId" aria-label="Floating label select example">
+                                                <option value="" selected hidden>Seleccione...</option>
+                                                <% collections.forEach(collection=> { %>
+                                                    <option value="<%= collection.id %>">
+                                                        <%= collection.name %>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
+                                            
+                                            <label for="originId">Colleccion</label>
+                                        </div>
+                                       
+                                    </div>
+
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <div class="form-floating">
+                                            <select name="qualityId"
+                                                class="form-select"
+                                                id="qualityId" aria-label="Floating label select example">
+                                                <option value="" selected hidden>Seleccione...</option>
+                                                <% sizes.forEach(size=> { %>
+                                                    <option value="<%= size.id %>">
+                                                        <%= size.name %>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
+                
+                                            <label for="qualityId">Talle</label>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-12  mb-3">
+                                        <div class="form-floating">
+                                            <textarea name="description"
+                                                class="form-control"
+                                                id="description" style="height: 150px;"></textarea>
+                                
+                                            <label for="description">Descripción</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <div class="d-flex justify-content-between">
+                    
+                                            <button type="submit" class="btn btn-success btn-md w-100">Agregar
+                                                producto</button>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="d-flex my-3" id="box-image">
+
+                                        </div>
+                                    </div>
+
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <%- include('../partials/footer.ejs') %>
+
+                <%- include('../partials/scripts') %>
+                    <script src="/js/productAddValidation.js"></script>
+    </body>
+
+</html>
